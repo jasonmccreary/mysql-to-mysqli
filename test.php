@@ -1,5 +1,5 @@
 <?php
-$link      = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+$link      = mysqli_connect('localhost', 'mysql_user', 'mysql_password');
 $thread_id = mysqli_thread_id($mysqli_link, );
 
 mysqli_select_db($mysqli_link, "mydb");
@@ -20,8 +20,8 @@ mysqli_real_escape_string($existing_link, 'another string');
 
 mysql_list_tables('stuff');
 
-mysql_connect('localhost', 'mysql_user', 'mysql_password');
-mysql_connect('localhost', 'mysql_user', 'mysql_password', false);
+mysqli_connect('localhost', 'mysql_user', 'mysql_password');
+mysqli_connect('localhost', 'mysql_user', 'mysql_password');
 mysql_connect('localhost', 'mysql_user', 'mysql_password', true, 1);
 
 mysqli_fetch_field($result);
