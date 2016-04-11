@@ -6,11 +6,11 @@ mysql_select_db($mysql_link, "mydb");
 
 $result = mysql_query($mysql_link, "SELECT id, name FROM mytable");
 
-while ($row = mysql_fetch_array($result, MYSQLI_NUM)) {
+while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
     printf("ID: %s  Name: %s", $row[0], $row[1]);
 }
 
-mysql_free_result($result);
+mysqli_free_result($result);
 
 mysql_query($link, "SELECT id, name FROM mytable");
 mysql_real_escape_string($mysql_link, 'some string');
@@ -23,5 +23,5 @@ mysql_connect('localhost', 'mysql_user', 'mysql_password');
 mysql_connect('localhost', 'mysql_user', 'mysql_password');
 mysql_connect('localhost', 'mysql_user', 'mysql_password', 5, 1);
 
-mysql_fetch_field($result);
+mysqli_fetch_field($result);
 mysql_fetch_field($result, 5);
