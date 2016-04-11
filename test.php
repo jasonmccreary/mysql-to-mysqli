@@ -1,10 +1,10 @@
 <?php
 $link      = mysql_connect('localhost', 'mysql_user', 'mysql_password');
-$thread_id = mysql_thread_id($link);
+$thread_id = mysqli_thread_id($link);
 
-mysql_select_db($mysql_link, "mydb");
+mysqli_select_db("mydb", $mysql_link);
 
-$result = mysql_query($mysql_link, "SELECT id, name FROM mytable");
+$result = mysqli_query("SELECT id, name FROM mytable", $mysql_link);
 
 while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
     printf("ID: %s  Name: %s", $row[0], $row[1]);
@@ -12,10 +12,10 @@ while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
 
 mysqli_free_result($result);
 
-mysql_query($link, "SELECT id, name FROM mytable");
-mysql_real_escape_string($mysql_link, 'some string');
-mysql_real_escape_string($link, 'another string');
-mysql_real_escape_string($mysql_link, 'another string');
+mysqli_query("SELECT id, name FROM mytable", $link);
+mysqli_real_escape_string('some string', $mysql_link);
+mysqli_real_escape_string('another string', $link);
+mysqli_real_escape_string('another string', $mysql_link);
 
 mysql_list_tables('stuff');
 
